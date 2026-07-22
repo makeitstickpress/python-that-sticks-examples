@@ -16,8 +16,7 @@ Then open `http://localhost:4173/#/chapter/1`.
 
 ## Book links
 
-- Chapter 1: `https://makeitstickpress.github.io/python-that-sticks-examples/#/chapter/1`
+- Chapter 1: `https://python.makeitstickpress.com/#/chapter/1`
 - Direct example: append the example ID, such as `#/chapter/1/first-flashcard`
 
 The browser runner uses the current stable Pyodide runtime. The book's source repository separately validates every example against its pinned Python 3.15 interpreter.
-
