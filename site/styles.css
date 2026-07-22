@@ -1,0 +1,439 @@
+:root {
+  --ink: #18212f;
+  --muted: #5d6878;
+  --paper: #fff9ea;
+  --panel: #fffdf6;
+  --accent: #9b4d00;
+  --gold: #f6c453;
+  --line: #e7ddc4;
+  --console: #172231;
+  --console-text: #fff7df;
+  --green: #087f5b;
+  --sidebar-width: 17rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", Avenir, "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.boot-message {
+  margin: 4rem auto;
+  max-width: 30rem;
+  text-align: center;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  background: var(--ink);
+  color: #f4eeda;
+}
+
+.brand {
+  margin-bottom: 1rem;
+  padding: 0 0.5rem 1.25rem;
+  border-bottom: 1px solid rgb(244 238 218 / 15%);
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.brand-sub,
+.nav-part-title {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.brand-sub {
+  margin: 0.15rem 0 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+}
+
+.nav-part-title {
+  margin: 0 0.5rem 0.45rem;
+  color: rgb(244 238 218 / 55%);
+  font-size: 0.68rem;
+}
+
+.chapter-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 7px;
+  color: #f4eeda;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: rgb(244 238 218 / 8%);
+}
+
+.nav-link.active {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.nav-num {
+  width: 1.25rem;
+  text-align: right;
+}
+
+.nav-dot {
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #46c67c;
+}
+
+.content {
+  min-width: 0;
+  max-width: 92rem;
+  padding: 2.5rem clamp(1.25rem, 4vw, 3.5rem) 4rem;
+}
+
+.chapter-head {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.chapter-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter-head h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.chapter-lede {
+  max-width: 48rem;
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.runtime-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 52rem;
+  margin: 0 0 2rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #cbded6;
+  border-radius: 8px;
+  background: #edf8f3;
+  color: #315c4c;
+  font-size: 0.82rem;
+}
+
+.runtime-note span:last-child::before {
+  content: "·";
+  margin-right: 0.55rem;
+}
+
+.runtime-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.example {
+  margin: 0 0 2rem;
+  padding: 1.25rem;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: 6px 6px 0 rgb(24 33 47 / 10%);
+  scroll-margin-top: 1.5rem;
+}
+
+.example-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.example-head h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid #f0d49a;
+  border-radius: 999px;
+  background: #fdeccd;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.example-intro {
+  max-width: 48rem;
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.copy-button,
+.reset-button,
+.run-button {
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.copy-button,
+.reset-button {
+  background: transparent;
+}
+
+.copy-button {
+  flex: none;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.copy-button:hover,
+.reset-button:hover {
+  background: #fdeccd;
+}
+
+.runner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+  min-height: 24rem;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+}
+
+.editor-pane,
+.console-pane {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.editor-pane {
+  border-right: 2px solid var(--ink);
+  background: #fffcf4;
+}
+
+.console-pane {
+  background: var(--console);
+  color: var(--console-text);
+}
+
+.pane-head {
+  display: flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #d9ceb5;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.console-head {
+  border-color: rgb(255 255 255 / 12%);
+  color: #c8d0dc;
+}
+
+.runtime {
+  color: #aeb8c5;
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-align: right;
+  text-transform: none;
+}
+
+.runtime.ready {
+  color: #8de4bd;
+}
+
+.runtime.error {
+  color: #ffaaa5;
+}
+
+.reset-button {
+  padding: 0.2rem 0.55rem;
+  color: var(--ink);
+  font-size: 0.7rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 21.4rem;
+  flex: 1;
+  resize: vertical;
+  padding: 1rem;
+  border: 0;
+  outline: 0;
+  background: #fffcf4;
+  color: var(--ink);
+  font-family: Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  tab-size: 4;
+}
+
+.console-pane pre {
+  min-height: 21.4rem;
+  flex: 1;
+  margin: 0;
+  padding: 1rem;
+  overflow: auto;
+  color: var(--console-text);
+  font-family: Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.console-pane pre.error-output {
+  color: #ffb7b1;
+}
+
+.runner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.85rem;
+}
+
+.run-button {
+  padding: 0.55rem 1rem;
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.run-button:hover:not(:disabled) {
+  background: #ffd773;
+}
+
+.run-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.shortcut {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 850px) {
+  .shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .brand {
+    padding-bottom: 0.8rem;
+  }
+
+  .runner {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-pane {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+}
+
+@media (max-width: 520px) {
+  .content {
+    padding: 1.5rem 0.8rem 3rem;
+  }
+
+  .example {
+    padding: 0.85rem;
+  }
+
+  .example-head {
+    display: block;
+  }
+
+  .copy-button {
+    margin-top: 0.75rem;
+  }
+
+  .runner {
+    min-height: 0;
+  }
+
+  textarea,
+  .console-pane pre {
+    min-height: 18rem;
+    font-size: 0.82rem;
+  }
+}
+
